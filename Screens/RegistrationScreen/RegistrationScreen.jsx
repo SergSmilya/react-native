@@ -1,9 +1,9 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Image } from "react-native";
 import RegisterForm from "../../components/RegisterForm";
 import { useFonts } from "expo-font";
 
 export default function RegistrationScreen() {
-  const { container, text, title } = styles;
+  const { container, text, title, wrap__foto } = styles;
 
   const [fontsLoaded] = useFonts({
     "Inter-Medium": require("../../assets/fonts/Inter/Inter-Medium.ttf"),
@@ -15,8 +15,28 @@ export default function RegistrationScreen() {
   if (!fontsLoaded) {
     return;
   }
+
   return (
     <View style={container}>
+      <View style={wrap__foto}>
+        <View
+          style={{
+            position: "absolute",
+            borderRadius: "50%",
+            right: 0,
+            bottom: 14,
+            transform: [{ translateX: 12 }],
+            width: 25,
+            height: 25,
+            backgroundColor: "orange",
+          }}
+        >
+          <Image
+            source={require("../../assets/img/add.svg")}
+            srcSet={"../../assets/img/add.svg"}
+          />
+        </View>
+      </View>
       <Text style={StyleSheet.compose(text, title)}>Реєстрація</Text>
       <RegisterForm style={{ width: "100%" }} />
       <Text style={text}>Вже маєте акаунт? Увійти</Text>
@@ -26,6 +46,7 @@ export default function RegistrationScreen() {
 
 const styles = StyleSheet.create({
   container: {
+    position: "relative",
     flex: 1,
     // alignItems: "center",
     // justifyContent: "center",
@@ -38,13 +59,24 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 25,
   },
 
+  wrap__foto: {
+    position: "absolute",
+    top: -60,
+    left: "50%",
+    transform: [{ translateX: -50 }],
+    width: 120,
+    height: 120,
+    backgroundColor: "#F6F6F6",
+    borderRadius: 16,
+  },
+
   text: {
     textAlign: "center",
     fontFamily: "Roboto-Regular",
     fontStyle: "normal",
     fontWeight: 400,
     fontSize: 16,
-    lineHeight: 1.19,
+    lineHeight: 19,
     color: "#1B4371",
   },
 
@@ -52,7 +84,7 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto-Medium",
     fontWeight: 500,
     fontSize: 30,
-    lineHeight: 1.1,
+    lineHeight: 35,
     color: "#212121",
     marginTop: 92,
     marginBottom: 32,
