@@ -1,10 +1,4 @@
-import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  KeyboardAvoidingView,
-} from "react-native";
+import { Text, View, StyleSheet, Image } from "react-native";
 import RegisterForm from "../../components/RegisterForm";
 import { useFonts } from "expo-font";
 
@@ -47,8 +41,6 @@ export default function RegistrationScreen() {
       <Text style={StyleSheet.compose(text, title)}>Реєстрація</Text>
       <RegisterForm style={{ width: "100%" }} />
       <Text style={text}>Вже маєте акаунт? Увійти</Text>
-
-      <KeyboardAvoidingView enabled={false} />
     </View>
   );
 }
