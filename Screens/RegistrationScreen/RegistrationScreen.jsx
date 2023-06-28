@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontFamily: "Roboto-Medium",
+    fontFamily: "Roboto-Regular",
     fontWeight: 500,
     fontSize: 30,
     lineHeight: 35,

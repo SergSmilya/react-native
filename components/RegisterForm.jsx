@@ -46,7 +46,9 @@ export default function RegisterForm() {
               />
 
               <Pressable style={btn} onPress={handleSubmit}>
-                <Text style={{ color: "#FFFFFF" }}>Зареєструватися</Text>
+                <Text style={{ color: "#FFFFFF", fontSize: 16 }}>
+                  Зареєструватися
+                </Text>
               </Pressable>
             </View>
           )}
@@ -65,6 +67,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     color: "#BDBDBD",
     padding: 16,
+    fontSize: 16,
   },
 
   input_lastChild: {
