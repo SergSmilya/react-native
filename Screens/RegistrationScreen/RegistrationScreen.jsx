@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet, Image } from "react-native";
-import RegisterForm from "../../components/RegisterForm";
 import { useFonts } from "expo-font";
+import RegisterForm from "../../components/RegisterForm";
 
 export default function RegistrationScreen() {
   const { container, text, title, wrap__foto } = styles;
@@ -39,6 +39,7 @@ export default function RegistrationScreen() {
         </View>
       </View>
       <Text style={StyleSheet.compose(text, title)}>Реєстрація</Text>
+
       <RegisterForm style={{ width: "100%" }} />
       <Text style={text}>Вже маєте акаунт? Увійти</Text>
     </View>
@@ -49,10 +50,8 @@ const styles = StyleSheet.create({
   container: {
     position: "relative",
     flex: 1,
-    // alignItems: "center",
-    // justifyContent: "center",
-    width: "100%",
-    height: 549,
+    // width: "100%",
+    // height: 549,
     backgroundColor: "#FFFFFF",
     marginTop: 219,
     paddingHorizontal: 16,

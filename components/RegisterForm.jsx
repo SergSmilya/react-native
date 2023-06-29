@@ -1,60 +1,49 @@
-import {
-  TextInput,
-  View,
-  StyleSheet,
-  Pressable,
-  Text,
-  TouchableWithoutFeedback,
-} from "react-native";
+import { TextInput, View, StyleSheet, Pressable, Text } from "react-native";
 import { Formik } from "formik";
 
 export default function RegisterForm() {
   const { input, input_lastChild, btn } = styles;
 
   return (
-    <TouchableWithoutFeedback onPress={() => console.log("qwe")}>
-      <View>
-        <Formik
-          initialValues={{ login: "", email: "", password: "" }}
-          onSubmit={(values) => console.log(values)}
-        >
-          {({ handleChange, handleBlur, handleSubmit, values }) => (
-            <View>
-              <TextInput
-                style={input}
-                placeholder="Login"
-                onChangeText={handleChange("login")}
-                onBlur={handleBlur("login")}
-                value={values.login}
-              />
+    <Formik
+      initialValues={{ login: "", email: "", password: "" }}
+      onSubmit={(values) => console.log(values)}
+    >
+      {({ handleChange, handleBlur, handleSubmit, values }) => (
+        <View>
+          <TextInput
+            style={input}
+            placeholder="Login"
+            onChangeText={handleChange("login")}
+            onBlur={handleBlur("login")}
+            value={values.login}
+          />
 
-              <TextInput
-                keyboardType="email-address"
-                style={input}
-                placeholder="Email"
-                onChangeText={handleChange("email")}
-                onBlur={handleBlur("email")}
-                value={values.email}
-              />
+          <TextInput
+            keyboardType="email-address"
+            style={input}
+            placeholder="Email"
+            onChangeText={handleChange("email")}
+            onBlur={handleBlur("email")}
+            value={values.email}
+          />
 
-              <TextInput
-                style={StyleSheet.compose(input, input_lastChild)}
-                placeholder="Password"
-                onChangeText={handleChange("password")}
-                onBlur={handleBlur("password")}
-                value={values.password}
-              />
+          <TextInput
+            style={StyleSheet.compose(input, input_lastChild)}
+            placeholder="Password"
+            onChangeText={handleChange("password")}
+            onBlur={handleBlur("password")}
+            value={values.password}
+          />
 
-              <Pressable style={btn} onPress={handleSubmit}>
-                <Text style={{ color: "#FFFFFF", fontSize: 16 }}>
-                  Зареєструватися
-                </Text>
-              </Pressable>
-            </View>
-          )}
-        </Formik>
-      </View>
-    </TouchableWithoutFeedback>
+          <Pressable style={btn} onPress={handleSubmit}>
+            <Text style={{ color: "#FFFFFF", fontSize: 16 }}>
+              Зареєструватися
+            </Text>
+          </Pressable>
+        </View>
+      )}
+    </Formik>
   );
 }
 

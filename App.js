@@ -1,30 +1,40 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, ImageBackground } from "react-native";
+import {
+  StyleSheet,
+  View,
+  ImageBackground,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import RegistrationScreen from "./Screens/RegistrationScreen/RegistrationScreen";
-import KeyboardAvoidingComponent from "./components/Keyboard";
 
 export default function App() {
   return (
-    <View>
-      <KeyboardAvoidingComponent>
-        <ImageBackground
-          source={require("./assets/img/photo_BG.jpg")}
-          style={{ width: "100%", height: "100%" }}
-        >
-          {/* <RegistrationScreen /> */}
-          {/* <StatusBar style="auto" /> */}
-        </ImageBackground>
-      </KeyboardAvoidingComponent>
-    </View>
+    <SafeAreaProvider>
+      <ImageBackground
+        source={require("./assets/img/photo_BG.jpg")}
+        // style={{ flex: 1, width: "100%", height: "100%" }}
+        style={{ flex: 1, width: null, height: null }}
+      >
+        <View style={styles.container}>
+          <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+          >
+            <RegistrationScreen />
+            <StatusBar style="auto" />
+          </KeyboardAvoidingView>
+        </View>
+      </ImageBackground>
+    </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 3,
+    width: "100%",
     alignItems: "center",
     justifyContent: "center",
   },
 });
-
-// шрифти у формі реєстраціі
