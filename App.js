@@ -1,17 +1,20 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View, ImageBackground } from "react-native";
 import RegistrationScreen from "./Screens/RegistrationScreen/RegistrationScreen";
+import KeyboardAvoidingComponent from "./components/Keyboard";
 
 export default function App() {
   return (
     <View>
-      <ImageBackground
-        source={require("./assets/img/photo_BG.jpg")}
-        style={{ width: "100%", height: "100%" }}
-      >
-        <RegistrationScreen />
-        <StatusBar style="auto" />
-      </ImageBackground>
+      <KeyboardAvoidingComponent>
+        <ImageBackground
+          source={require("./assets/img/photo_BG.jpg")}
+          style={{ width: "100%", height: "100%" }}
+        >
+          {/* <RegistrationScreen /> */}
+          {/* <StatusBar style="auto" /> */}
+        </ImageBackground>
+      </KeyboardAvoidingComponent>
     </View>
   );
 }

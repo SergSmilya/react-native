@@ -44,7 +44,8 @@ const styles = StyleSheet.create({
     marginBottom: 48,
   },
   textInput: {
-    height: 40,
+    marginTop: 100,
+    height: 80,
     borderColor: "#000000",
     borderBottomWidth: 1,
     marginBottom: 36,
